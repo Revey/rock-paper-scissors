@@ -16,28 +16,35 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        alert("Draw");
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
+        alert("MACHINE WINS ROUND!!");
+        computerScore++;
+    }else if (humanChoice === "rock" && computerChoice === "scissors") {
+        alert("MACHINE WINS ROUND!!");
+        computerScore++;
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        alert("HUMAN WINS ROUND!!");
+        humanScore++;
+    } 
+    else if (humanChoice === "scissors" && computerChoice === "rock"){
+        alert("HUMAN WINS ROUND!!");
+        humanScore++;
+    }else if (humanChoice === "paper" && computerChoice === "rock") {
+        alert("HUMAN WINS ROUND!!");
+        humanScore++;
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+        alert("MACHINE WINS ROUND!!");
+        computerScore++;
+    }
+}
 
 function playGame() {
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice == computerChoice) {
-            alert("Draw");
-        } else if (humanChoice === "rock" && computerChoice === "paper") {
-            alert("MACHINE WINS!!");
-            computerScore++;
-        } else if (humanChoice === "scissors" && computerChoice === "paper") {
-            alert("HUMAN WINS!!");
-            humanScore++;
-        } else if (humanChoice === "paper" && computerChoice === "rock") {
-            alert("HUMAN WINS!!");
-            humanScore++;
-        } else if (humanChoice === "paper" && computerChoice === "scissors") {
-            alert("MACHINE WINS!!");
-            computerScore++;
-        }
-    }
     
     const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice;
+    const computerSelection = getComputerChoice();
     
     playRound(humanSelection, computerSelection);
     
@@ -47,11 +54,13 @@ playGame();
 playGame();
 playGame();
 playGame();
-
-if (humanScore > computerScore) {
-    console.log(alert("YOU WON"));
-} else if (humanScore < computerScore) {
-    console.log(alert("YOU LOSE"));
-} else if (humanScore = computerScore) {
-    console.log(alert("Draw"));
+announce();
+function announce() {
+    if (humanScore > computerScore) {
+        console.log(alert("YOU WON"));
+    } else if (humanScore < computerScore) {
+        console.log(alert("YOU LOSE"));
+    } else if (humanScore = computerScore) {
+        console.log(alert("Draw"));
+    }
 }
